@@ -18,7 +18,7 @@
     }
 
     /*
-    FONT USATI:
+    F0NT USATI:
     - Titoli (IMPERIO, headings): 'Cinzel' - simile a New Icon Condensed, maiuscoletto romano
     - Sottotitoli e slogan: 'Raleway' - elegante, condensed, simile a Parchasin Neue
     - Corpo testo: 'Cormorant Garamond' - serif raffinato
@@ -56,10 +56,14 @@
     }
 
     .nav-logo img {
-      height: 60px;
+      height: 36px;
       width: auto;
       display: block;
-    }
+
+      }
+
+    /* Fallback SVG se immagine non trovata */
+    .logo-svg { width: 36px; height: 36px; }
 
     .logo-name {
       font-family: 'Cinzel', serif;
@@ -99,11 +103,16 @@
     }
 
     .hero-logo-img {
-      width: 400px;
+      width: 220px;
       height: auto;
-      margin-bottom: 2rem;
+      margin-bottom: 2.5rem;
       display: block;
+
     }
+
+    /* Fallback SVG se immagine non trovata */
+
+    .hero-rings { width: 180px; height: 180px; margin-bottom: 3rem; opacity: 0.9; }
 
     .hero-title {
       font-family: 'Cinzel', serif;
@@ -113,7 +122,6 @@
       font-weight: 400;
       line-height: 1;
       margin-bottom: 1.2rem;
-      display: none;
     }
 
     .hero-slogan {
@@ -292,7 +300,7 @@
     .bg-scultura { background: #d8e0da; }
     .bg-pittura  { background: #d8d9e2; }
     .bg-gioiello { background: #e2d8d8; }
-    .bg-tessuto  { background: #dae0d8; }
+    .bg-capi  { background: #dae0d8; }
     .bg-disegno  { background: #e2ddd5; }
 
     /* ── ABOUT ── */
@@ -423,10 +431,8 @@
     /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
       nav { padding: 1.5rem; }
-      .nav-logo img { height: 45px; }
       .nav-links { gap: 1.5rem; }
       .hero-title { font-size: 36px; }
-      .hero-logo-img { width: 300px; }
       .gallery { grid-template-columns: repeat(2, 1fr); padding: 1rem 1rem 3rem; }
       .about-strip { grid-template-columns: 1fr; gap: 2rem; padding: 2.5rem 1.5rem; }
       .categories { padding: 0.5rem 1rem 1rem; }
@@ -434,11 +440,9 @@
 
     @media (max-width: 480px) {
       nav { padding: 1rem 1.2rem; }
-      .nav-logo img { height: 40px; }
       .nav-links { gap: 1rem; }
       .nav-links a { font-size: 9px; }
       .hero { padding: 4rem 1.5rem 3rem; }
-      .hero-logo-img { width: 220px; }
       .hero-title { font-size: 28px; }
       .gallery { grid-template-columns: 1fr; }
       footer { flex-direction: column; gap: 0.8rem; text-align: center; }
@@ -450,7 +454,10 @@
   <!-- ── NAV ── -->
   <nav>
     <a class="nav-logo" href="#">
-      <img src="cerchi.png" alt="Imperio Logo" style="height: 60px; width: auto;">
+      <svg class="logo-svg" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="18" cy="17" rx="12" ry="12.5" stroke="#B56E4D" stroke-width="0.9" fill="none" transform="rotate(-8 18 17)"/>
+        <ellipse cx="20" cy="21" rx="12" ry="12.5" stroke="#A8B2A1" stroke-width="0.7" fill="none" transform="rotate(5 20 21)"/>
+      </svg>
       <span class="logo-name">Imperio</span>
     </a>
     <ul class="nav-links">
@@ -462,11 +469,14 @@
 
   <!-- ── HERO ── -->
   <section class="hero">
-    <img src="verticale_solo_nome.png" alt="Imperio" class="hero-logo-img" style="width: 400px; height: auto; margin-bottom: 2rem;">
+    <svg class="hero-rings" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="86" cy="82" rx="56" ry="58" stroke="#B56E4D" stroke-width="1.2" fill="none" transform="rotate(-12 86 82)"/>
+      <ellipse cx="94" cy="98" rx="56" ry="58" stroke="#A8B2A1" stroke-width="0.8" fill="none" transform="rotate(6 94 98)"/>
+    </svg>
     <h1 class="hero-title">Imperio</h1>
     <p class="hero-slogan">Ogni pezzo ha una storia</p>
-    <p class="hero-sub">Vasi · Sculture · Pitture · Disegni · Gioielli · Capi</p>
-    <button class="hero-cta" aria-label="Vai alla collezione" onclick="document.getElementById('collezione').scrollIntoView({behavior:'smooth'})">
+    <p class="hero-sub">Vasi · Sculture · Pitture · Disegni · Gioielli · Tessuti</p>
+    <button class="hero-cta"         aria-label="Vai alla collezione" onclick="document.getElementById('collezione').scrollIntoView({behavior:'smooth'})">
       Scopri la collezione
     </button>
   </section>
@@ -485,7 +495,7 @@
     <button class="cat-pill" onclick="filterCat(this,'sculture')">Sculture</button>
     <button class="cat-pill" onclick="filterCat(this,'pitture')">Pitture</button>
     <button class="cat-pill" onclick="filterCat(this,'gioielli')">Gioielli</button>
-    <button class="cat-pill" onclick="filterCat(this,'capi')">Capi</button>
+    <button class="cat-pill" onclick="filterCat(this,'tessuti')">Tessuti</button>
     <button class="cat-pill" onclick="filterCat(this,'disegni')">Disegni</button>
   </div>
 
@@ -576,7 +586,7 @@
       </div>
     </div>
 
-    <div class="gallery-item bg-tessuto" data-cat="capi">
+    <div class="gallery-item bg-capo" data-cat="capi">
       <div class="gallery-item-inner">
         <!-- SOSTITUISCI CON LA TUA FOTO -->
         <svg width="100" height="120" viewBox="0 0 100 120" fill="none" opacity="0.4">
@@ -591,7 +601,7 @@
       </div>
       <div class="gallery-overlay"></div>
       <div class="gallery-info">
-        <p class="gallery-type">Capo</p>
+        <p class="gallery-type">Tessuto</p>
         <p class="gallery-title-item">Scialle Intrecciato a Mano</p>
         <p class="gallery-price">€ 240 · Unico</p>
       </div>
@@ -621,8 +631,24 @@
   <section class="about-strip" id="storia">
     <div>
       <p class="about-label">La nostra storia</p>
-      <p class="about-text">Imperio nasce da una famiglia di artigiani con oltre trent'anni di esperienza. Ogni oggetto che creiamo porta con sé il tempo, le mani e l'intenzione di chi lo ha fatto. Nessun pezzo viene replicato: quando un'opera esce dal nostro studio, è per sempre unica. Crediamo che gli oggetti belli abbiano il potere di trasformare gli spazi e le vite di chi li possiede.</p>
+      -->
+      <p class="about-text">Imperio nasce da una famiglia di artigiani, creiamo per passione e curiosità. Ogni oggetto che creiamo porta con sé il tempo, le mani e l'intenzione di chi lo ha fatto. Nessun pezzo viene replicato: quando entra in una casa, è lì per sempre.</p>
+      <div>
+        <p class="about-label">Grazia</p>
+      -->
+      <p class="about-text">Fin da giovane, Grazia è appassionata di arte: da disegni e pitture, ha scoperto le sculture e la ceracima come fonti di sperimentazione e espressione. Oggi, nella sua casa in montagna, dedica il suo tempo a creare pezzi unici.</p>
+     <!-- SOSTITUISCI CON LA TUA FOTO -->
     </div>
+       <p class="about-label">Irene</p>
+      -->
+      <p class="about-text">Una perlina all volta, Irene crea gioelli colorati, pieni di felicità e espressione. Un segno di pace da condividere con voi..</p>
+      <!-- SOSTITUISCI CON LA TUA FOTO --> 
+       </div>
+      <p class="about-label">Patrizia</p>
+      -->
+      <p class="about-text">Trovando tessuti unici ai mercati, Patrizia si diverte a creare capi, da giacche a maglie, da pantaloni a camiciette, con il proprio gusto.</p>
+    <!-- SOSTITUISCI CON LA TUA FOTO --> 
+       </div>
     <div class="about-numbers">
       <div class="about-stat">
         <span class="about-stat-num">100%</span>
@@ -647,6 +673,9 @@
   <section class="contact" id="contatto">
     <h2 class="contact-title">Hai interesse per un pezzo?</h2>
     <p class="contact-sub">Scrivici — ogni acquisto è una conversazione</p>
+    <!--
+      MODIFICA: cambia l'indirizzo email qui sotto (sia in href che nel testo)
+    -->
     <a class="contact-email" href="mailto:info@imperiohandmade.com">info@imperiohandmade.com</a>
   </section>
 
