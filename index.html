@@ -59,11 +59,7 @@
       height: 36px;
       width: auto;
       display: block;
-
-      }
-
-    /* Fallback SVG se immagine non trovata */
-    .logo-svg { width: 36px; height: 36px; }
+    }
 
     .logo-name {
       font-family: 'Cinzel', serif;
@@ -107,12 +103,7 @@
       height: auto;
       margin-bottom: 2.5rem;
       display: block;
-
     }
-
-    /* Fallback SVG se immagine non trovata */
-
-    .hero-rings { width: 180px; height: 180px; margin-bottom: 3rem; opacity: 0.9; }
 
     .hero-title {
       font-family: 'Cinzel', serif;
@@ -122,6 +113,7 @@
       font-weight: 400;
       line-height: 1;
       margin-bottom: 1.2rem;
+      display: none;
     }
 
     .hero-slogan {
@@ -454,10 +446,7 @@
   <!-- ── NAV ── -->
   <nav>
     <a class="nav-logo" href="#">
-      <svg class="logo-svg" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <ellipse cx="18" cy="17" rx="12" ry="12.5" stroke="#B56E4D" stroke-width="0.9" fill="none" transform="rotate(-8 18 17)"/>
-        <ellipse cx="20" cy="21" rx="12" ry="12.5" stroke="#A8B2A1" stroke-width="0.7" fill="none" transform="rotate(5 20 21)"/>
-      </svg>
+      <img src="cerchi.png" alt="Imperio Logo" style="height: 36px; width: auto;">
       <span class="logo-name">Imperio</span>
     </a>
     <ul class="nav-links">
@@ -469,10 +458,7 @@
 
   <!-- ── HERO ── -->
   <section class="hero">
-    <svg class="hero-rings" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <ellipse cx="86" cy="82" rx="56" ry="58" stroke="#B56E4D" stroke-width="1.2" fill="none" transform="rotate(-12 86 82)"/>
-      <ellipse cx="94" cy="98" rx="56" ry="58" stroke="#A8B2A1" stroke-width="0.8" fill="none" transform="rotate(6 94 98)"/>
-    </svg>
+    <img src="verticale_solo_nome.png" alt="Imperio" class="hero-logo-img" style="max-width: 300px; margin-bottom: 2rem;">
     <h1 class="hero-title">Imperio</h1>
     <p class="hero-slogan">Ogni pezzo ha una storia</p>
     <p class="hero-sub">Vasi · Sculture · Pitture · Disegni · Gioielli · Tessuti</p>
