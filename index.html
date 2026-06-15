@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Imperio — Ogni pezzo ha una storia</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500&family=Raleway:wght@300;400;500&family=Cormorant+Garamond:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --terra: #B56E4D;
+      --salvia: #A8B2A1;
+      --carbone: #2B2B2B;
+      --crema: #F3EEE7;
+      --nero: #0D0D0B;
+    }
+
+    /*
+    FONT USATI:
+    - Titoli (IMPERIO, headings): 'Cinzel' - simile a New Icon Condensed, maiuscoletto romano
+    - Sottotitoli e slogan: 'Raleway' - elegante, condensed, simile a Parchasin Neue
+    - Corpo testo: 'Cormorant Garamond' - serif raffinato
+    */
+
+    html {
+  scroll-behavior: smooth;
+}
+    
+    body {
+      background: var(--crema);
+      color: var(--carbone);
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      min-height: 100vh;
+    }
+
+    /* ── NAV ── */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.8rem 3rem;
+      border-bottom: 0.5px solid rgba(43,43,43,0.15);
+      position: sticky;
+      top: 0;
+      background: var(--crema);
+      z-index: 100;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+    }
+
+    .nav-logo img {
+      height: 36px;
+      width: auto;
+      display: block;
+
+      }
+
+    /* Fallback SVG se immagine non trovata */
+    .logo-svg { width: 36px; height: 36px; }
+
+    .logo-name {
+      font-family: 'Cinzel', serif;
+      font-size: 16px;
+      letter-spacing: 0.32em;
+      color: var(--terra);
+      font-weight: 400;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: 'Raleway', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      color: var(--carbone);
+      text-decoration: none;
+      text-transform: uppercase;
+      opacity: 0.6;
+      transition: opacity 0.3s, color 0.3s;
+    }
+
+    .nav-links a:hover { opacity: 1; color: var(--terra); }
+
+    /* ── HERO ── */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 6rem 2rem 5rem;
+      text-align: center;
+    }
+
+    .hero-logo-img {
+      width: 220px;
+      height: auto;
+      margin-bottom: 2.5rem;
+      display: block;
+
+    }
+
+    /* Fallback SVG se immagine non trovata */
+
+    .hero-rings { width: 180px; height: 180px; margin-bottom: 3rem; opacity: 0.9; }
+
+    .hero-title {
+      font-family: 'Cinzel', serif;
+      font-size: 52px;
+      letter-spacing: 0.28em;
+      color: var(--terra);
+      font-weight: 400;
+      line-height: 1;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-slogan {
+      font-family: 'Raleway', sans-serif;
+      font-size: 13px;
+      letter-spacing: 0.22em;
+      color: var(--salvia);
+      font-style: italic;
+      margin-bottom: 3rem;
+      text-transform: lowercase;
+    }
+
+    .hero-sub {
+      font-family: 'Raleway', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      color: rgba(168,178,161,0.65);
+      text-transform: uppercase;
+      line-height: 2.2;
+    }
+
+    .hero-cta {
+      margin-top: 2.5rem;
+      display: inline-block;
+      border: 0.5px solid rgba(181,110,77,0.5);
+      color: var(--terra);
+      padding: 0.8rem 2.5rem;
+      font-family: 'Raleway', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      cursor: pointer;
+      background: transparent;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .hero-cta:hover { background: var(--terra); color: var(--crema); }
+
+    /* ── DIVIDER ── */
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      padding: 0 3rem;
+      margin: 2.5rem 0;
+    }
+
+    .divider-line { flex: 1; height: 0.5px; background: rgba(43,43,43,0.15); }
+
+    .divider-mark {
+      font-family: 'Raleway', sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.3em;
+      color: rgba(43,43,43,0.35);
+      text-transform: uppercase;
+    }
+
+    /* ── CATEGORIES ── */
+    .categories {
+      padding: 0.5rem 3rem 1.5rem;
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .cat-pill {
+      border: 0.5px solid rgba(43,43,43,0.2);
+      color: rgba(43,43,43,0.45);
+      padding: 0.4rem 1.4rem;
+      font-family: 'Raleway', sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      cursor: pointer;
+      background: transparent;
+      transition: all 0.3s;
+    }
+
+    .cat-pill:hover, .cat-pill.active {
+      border-color: var(--terra);
+      color: var(--terra);
+    }
+
+    /* ── GALLERY ── */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      padding: 1.5rem 3rem 4rem;
+    }
+
+    .gallery-item {
+      position: relative;
+      aspect-ratio: 3/4;
+      overflow: hidden;
+      cursor: pointer;
+      background: #e8e3dc;
+    }
+
+    /*
+      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+      COME AGGIUNGERE LE TUE FOTO:
+      Sostituisci il blocco SVG con:
+        <img src="foto-nome.jpg" alt="Nome pezzo"
+             style="width:100%;height:100%;object-fit:cover;">
+      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    */
+
+    .gallery-item-inner {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.6s ease;
+    }
+
+    .gallery-item:hover .gallery-item-inner { transform: scale(1.04); }
+
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(13,13,11,0.65) 0%, transparent 55%);
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+
+    .gallery-item:hover .gallery-overlay { opacity: 1; }
+
+    .gallery-info {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 1.2rem;
+      transform: translateY(4px);
+      opacity: 0;
+      transition: all 0.4s;
+    }
+
+    .gallery-item:hover .gallery-info { opacity: 1; transform: translateY(0); }
+    .gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+    .gallery-type {
+      font-family: 'Raleway', sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.28em;
+      color: var(--salvia);
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .gallery-title-item {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 16px;
+      color: var(--crema);
+      font-weight: 300;
+      letter-spacing: 0.05em;
+    }
+
+    .gallery-price {
+      font-family: 'Raleway', sans-serif;
+      font-size: 11px;
+      color: var(--terra);
+      letter-spacing: 0.12em;
+      margin-top: 4px;
+    }
+
+    .bg-vaso     { background: #e0d8cf; }
+    .bg-scultura { background: #d8e0da; }
+    .bg-pittura  { background: #d8d9e2; }
+    .bg-gioiello { background: #e2d8d8; }
+    .bg-tessuto  { background: #dae0d8; }
+    .bg-disegno  { background: #e2ddd5; }
+
+    /* ── ABOUT ── */
+    .about-strip {
+      border-top: 0.5px solid rgba(43,43,43,0.1);
+      border-bottom: 0.5px solid rgba(43,43,43,0.1);
+      padding: 3.5rem 3rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      background: var(--crema);
+    }
+
+    .about-label {
+      font-family: 'Raleway', sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.35em;
+      color: var(--terra);
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .about-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 16px;
+      line-height: 1.9;
+      color: rgba(43,43,43,0.7);
+      font-weight: 300;
+      letter-spacing: 0.03em;
+    }
+
+    .about-numbers {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .about-stat {
+      text-align: center;
+      border: 0.5px solid rgba(43,43,43,0.12);
+      padding: 1.5rem 1rem;
+    }
+
+    .about-stat-num {
+      font-family: 'Cinzel', serif;
+      font-size: 30px;
+      color: var(--terra);
+      font-weight: 400;
+      letter-spacing: 0.05em;
+      display: block;
+    }
+
+    .about-stat-label {
+      font-family: 'Raleway', sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      color: var(--salvia);
+      text-transform: uppercase;
+      opacity: 0.8;
+      margin-top: 6px;
+      display: block;
+    }
+
+    /* ── CONTACT ── */
+    .contact {
+      padding: 4rem 3rem;
+      text-align: center;
+      background: var(--crema);
+    }
+
+    .contact-title {
+      font-family: 'Cinzel', serif;
+      font-size: 22px;
+      letter-spacing: 0.25em;
+      color: var(--carbone);
+      font-weight: 400;
+      margin-bottom: 0.8rem;
+    }
+
+    .contact-sub {
+      font-family: 'Raleway', sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.15em;
+      color: rgba(43,43,43,0.45);
+      font-style: italic;
+      margin-bottom: 2rem;
+    }
+
+    .contact-email {
+      font-family: 'Raleway', sans-serif;
+      font-size: 13px;
+      letter-spacing: 0.18em;
+      color: var(--terra);
+      text-decoration: none;
+      border-bottom: 0.5px solid rgba(181,110,77,0.35);
+      padding-bottom: 2px;
+      transition: border-color 0.3s, color 0.3s;
+    }
+
+    .contact-email:hover { border-color: var(--terra); color: var(--carbone); }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 0.5px solid rgba(43,43,43,0.1);
+      padding: 2rem 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--crema);
+    }
+
+    .footer-name {
+      font-family: 'Cinzel', serif;
+      font-size: 13px;
+      letter-spacing: 0.3em;
+      color: rgba(181,110,77,0.6);
+    }
+
+    .footer-note {
+      font-family: 'Raleway', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      color: rgba(43,43,43,0.3);
+      font-style: italic;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { padding: 1.5rem; }
+      .nav-links { gap: 1.5rem; }
+      .hero-title { font-size: 36px; }
+      .gallery { grid-template-columns: repeat(2, 1fr); padding: 1rem 1rem 3rem; }
+      .about-strip { grid-template-columns: 1fr; gap: 2rem; padding: 2.5rem 1.5rem; }
+      .categories { padding: 0.5rem 1rem 1rem; }
+    }
+
+    @media (max-width: 480px) {
+      nav { padding: 1rem 1.2rem; }
+      .nav-links { gap: 1rem; }
+      .nav-links a { font-size: 9px; }
+      .hero { padding: 4rem 1.5rem 3rem; }
+      .hero-title { font-size: 28px; }
+      .gallery { grid-template-columns: 1fr; }
+      footer { flex-direction: column; gap: 0.8rem; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── NAV ── -->
+  <nav>
+    <a class="nav-logo" href="#">
+      <svg class="logo-svg" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="18" cy="17" rx="12" ry="12.5" stroke="#B56E4D" stroke-width="0.9" fill="none" transform="rotate(-8 18 17)"/>
+        <ellipse cx="20" cy="21" rx="12" ry="12.5" stroke="#A8B2A1" stroke-width="0.7" fill="none" transform="rotate(5 20 21)"/>
+      </svg>
+      <span class="logo-name">Imperio</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#collezione">Collezione</a></li>
+      <li><a href="#storia">Chi siamo</a></li>
+      <li><a href="#contatto">Contatto</a></li>
+    </ul>
+  </nav>
+
+  <!-- ── HERO ── -->
+  <section class="hero">
+    <svg class="hero-rings" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="86" cy="82" rx="56" ry="58" stroke="#B56E4D" stroke-width="1.2" fill="none" transform="rotate(-12 86 82)"/>
+      <ellipse cx="94" cy="98" rx="56" ry="58" stroke="#A8B2A1" stroke-width="0.8" fill="none" transform="rotate(6 94 98)"/>
+    </svg>
+    <h1 class="hero-title">Imperio</h1>
+    <p class="hero-slogan">Ogni pezzo ha una storia</p>
+    <p class="hero-sub">Vasi · Sculture · Pitture · Disegni · Gioielli · Tessuti</p>
+    <button class="hero-cta" aria-label="Vai alla collezione" onclick="document.getElementById('collezione').scrollIntoView({behavior:'smooth'})">
+      Scopri la collezione
+    </button>
+  </section>
+
+  <!-- ── DIVIDER ── -->
+  <div class="divider">
+    <div class="divider-line"></div>
+    <span class="divider-mark">Creato una volta sola</span>
+    <div class="divider-line"></div>
+  </div>
+
+  <!-- ── CATEGORIES ── -->
+  <div class="categories" id="collezione">
+    <button class="cat-pill active" onclick="filterCat(this,'tutti')">Tutti</button>
+    <button class="cat-pill" onclick="filterCat(this,'vasi')">Vasi</button>
+    <button class="cat-pill" onclick="filterCat(this,'sculture')">Sculture</button>
+    <button class="cat-pill" onclick="filterCat(this,'pitture')">Pitture</button>
+    <button class="cat-pill" onclick="filterCat(this,'gioielli')">Gioielli</button>
+    <button class="cat-pill" onclick="filterCat(this,'tessuti')">Tessuti</button>
+    <button class="cat-pill" onclick="filterCat(this,'disegni')">Disegni</button>
+  </div>
+
+  <!-- ── GALLERY ── -->
+  <!--
+    ════════════════════════════════════════════════
+    COME MODIFICARE I PRODOTTI:
+
+    Per ogni pezzo, modifica:
+      data-cat="..."     → categoria (vasi/sculture/pitture/gioielli/tessuti/disegni)
+      class="bg-..."     → colore di sfondo placeholder
+      <img src="...">    → sostituisci l'SVG con la tua foto
+      .gallery-type      → tipo di oggetto
+      .gallery-title-item → nome del pezzo
+      .gallery-price     → prezzo
+
+    Per aggiungere un pezzo: copia un intero blocco .gallery-item e incollalo.
+    Per rimuoverne uno: cancella il blocco .gallery-item.
+    ════════════════════════════════════════════════
+  -->
+  <div class="gallery" id="gallery">
+
+    <div class="gallery-item bg-vaso" data-cat="vasi">
+      <div class="gallery-item-inner">
+        <!-- SOSTITUISCI CON: <img src="foto-vaso.jpg" alt="Anfora di Argilla Rossa" style="width:100%;height:100%;object-fit:cover;"> -->
+        <svg width="90" height="130" viewBox="0 0 90 130" fill="none">
+          <path d="M35 10 Q30 30 25 55 Q20 85 28 105 Q36 120 45 122 Q54 120 62 105 Q70 85 65 55 Q60 30 55 10 Z" fill="none" stroke="#B56E4D" stroke-width="0.8" opacity="0.4"/>
+          <path d="M30 12 L60 12" stroke="#B56E4D" stroke-width="0.6" opacity="0.3"/>
+          <ellipse cx="45" cy="118" rx="16" ry="4" fill="none" stroke="#A8B2A1" stroke-width="0.5" opacity="0.3"/>
+        </svg>
+      </div>
+      <div class="gallery-overlay"></div>
+      <div class="gallery-info">
+        <p class="gallery-type">Vaso</p>
+        <p class="gallery-title-item">Anfora di Argilla Rossa</p>
+        <p class="gallery-price">€ 320 · Unico</p>
+      </div>
+    </div>
+
+    <div class="gallery-item bg-scultura" data-cat="sculture">
+      <div class="gallery-item-inner">
+        <!-- SOSTITUISCI CON LA TUA FOTO -->
+        <svg width="80" height="140" viewBox="0 0 80 140" fill="none">
+          <ellipse cx="40" cy="35" rx="22" ry="28" fill="none" stroke="#A8B2A1" stroke-width="0.7" opacity="0.35"/>
+          <path d="M30 62 Q28 90 26 115 L54 115 Q52 90 50 62 Z" fill="none" stroke="#A8B2A1" stroke-width="0.6" opacity="0.25"/>
+          <line x1="26" y1="115" x2="54" y2="115" stroke="#A8B2A1" stroke-width="0.8" opacity="0.3"/>
+        </svg>
+      </div>
+      <div class="gallery-overlay"></div>
+      <div class="gallery-info">
+        <p class="gallery-type">Scultura</p>
+        <p class="gallery-title-item">Figura Femminile I</p>
+        <p class="gallery-price">€ 890 · Unico</p>
+      </div>
+    </div>
+
+    <div class="gallery-item bg-pittura" data-cat="pitture">
+      <div class="gallery-item-inner">
+        <!-- SOSTITUISCI CON LA TUA FOTO -->
+        <svg width="110" height="130" viewBox="0 0 110 130" fill="none">
+          <rect x="15" y="12" width="80" height="106" fill="none" stroke="#B56E4D" stroke-width="0.6" opacity="0.3"/>
+          <circle cx="55" cy="60" r="28" fill="none" stroke="#B56E4D" stroke-width="0.5" opacity="0.2"/>
+          <path d="M15 85 Q35 70 55 80 Q75 90 95 75" stroke="#A8B2A1" stroke-width="0.6" fill="none" opacity="0.3"/>
+        </svg>
+      </div>
+      <div class="gallery-overlay"></div>
+      <div class="gallery-info">
+        <p class="gallery-type">Pittura</p>
+        <p class="gallery-title-item">Orizzonte Terracotta</p>
+        <p class="gallery-price">€ 560 · Unico</p>
+      </div>
+    </div>
+
+    <div class="gallery-item bg-gioiello" data-cat="gioielli">
+      <div class="gallery-item-inner">
+        <!-- SOSTITUISCI CON LA TUA FOTO -->
+        <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+          <circle cx="40" cy="40" r="24" fill="none" stroke="#B56E4D" stroke-width="0.8" opacity="0.45"/>
+          <circle cx="40" cy="40" r="16" fill="none" stroke="#A8B2A1" stroke-width="0.5" opacity="0.3"/>
+          <circle cx="40" cy="40" r="5" fill="none" stroke="#B56E4D" stroke-width="0.7" opacity="0.5"/>
+        </svg>
+      </div>
+      <div class="gallery-overlay"></div>
+      <div class="gallery-info">
+        <p class="gallery-type">Gioiello</p>
+        <p class="gallery-title-item">Anello in Rame Battuto</p>
+        <p class="gallery-price">€ 180 · Unico</p>
+      </div>
+    </div>
+
+    <div class="gallery-item bg-tessuto" data-cat="tessuti">
+      <div class="gallery-item-inner">
+        <!-- SOSTITUISCI CON LA TUA FOTO -->
+        <svg width="100" height="120" viewBox="0 0 100 120" fill="none" opacity="0.4">
+          <line x1="20" y1="10" x2="20" y2="110" stroke="#A8B2A1" stroke-width="0.6"/>
+          <line x1="35" y1="10" x2="35" y2="110" stroke="#A8B2A1" stroke-width="0.6"/>
+          <line x1="50" y1="10" x2="50" y2="110" stroke="#B56E4D" stroke-width="0.8"/>
+          <line x1="65" y1="10" x2="65" y2="110" stroke="#A8B2A1" stroke-width="0.6"/>
+          <line x1="80" y1="10" x2="80" y2="110" stroke="#A8B2A1" stroke-width="0.6"/>
+          <line x1="10" y1="40" x2="90" y2="40" stroke="#B56E4D" stroke-width="0.7"/>
+          <line x1="10" y1="70" x2="90" y2="70" stroke="#A8B2A1" stroke-width="0.5"/>
+        </svg>
+      </div>
+      <div class="gallery-overlay"></div>
+      <div class="gallery-info">
+        <p class="gallery-type">Tessuto</p>
+        <p class="gallery-title-item">Scialle Intrecciato a Mano</p>
+        <p class="gallery-price">€ 240 · Unico</p>
+      </div>
+    </div>
+
+    <div class="gallery-item bg-disegno" data-cat="disegni">
+      <div class="gallery-item-inner">
+        <!-- SOSTITUISCI CON LA TUA FOTO -->
+        <svg width="90" height="110" viewBox="0 0 90 110" fill="none">
+          <rect x="12" y="10" width="66" height="90" fill="none" stroke="#B56E4D" stroke-width="0.5" opacity="0.25"/>
+          <path d="M22 40 Q35 30 45 38 Q55 46 68 35" stroke="#B56E4D" stroke-width="0.7" fill="none" opacity="0.4"/>
+          <path d="M22 55 Q30 48 45 52 Q58 56 68 48" stroke="#A8B2A1" stroke-width="0.6" fill="none" opacity="0.35"/>
+          <circle cx="45" cy="30" r="10" fill="none" stroke="#B56E4D" stroke-width="0.6" opacity="0.3"/>
+        </svg>
+      </div>
+      <div class="gallery-overlay"></div>
+      <div class="gallery-info">
+        <p class="gallery-type">Disegno</p>
+        <p class="gallery-title-item">Studio di Forme N.7</p>
+        <p class="gallery-price">€ 150 · Unico</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ── ABOUT ── -->
+  <section class="about-strip" id="storia">
+    <div>
+      <p class="about-label">La nostra storia</p>
+      <p class="about-text">Imperio nasce da una famiglia di artigiani con oltre trent'anni di esperienza. Ogni oggetto che creiamo porta con sé il tempo, le mani e l'intenzione di chi lo ha fatto. Nessun pezzo viene replicato: quando un'opera esce dal nostro studio, è per sempre unica. Crediamo che gli oggetti belli abbiano il potere di trasformare gli spazi e le vite di chi li possiede.</p>
+    </div>
+    <div class="about-numbers">
+      <div class="about-stat">
+        <span class="about-stat-num">100%</span>
+        <span class="about-stat-label">Fatto a mano</span>
+      </div>
+      <div class="about-stat">
+        <span class="about-stat-num">1/1</span>
+        <span class="about-stat-label">Ogni pezzo</span>
+      </div>
+      <div class="about-stat">
+        <span class="about-stat-num">6</span>
+        <span class="about-stat-label">Categorie</span>
+      </div>
+      <div class="about-stat">
+        <span class="about-stat-num">∞</span>
+        <span class="about-stat-label">Storie</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CONTACT ── -->
+  <section class="contact" id="contatto">
+    <h2 class="contact-title">Hai interesse per un pezzo?</h2>
+    <p class="contact-sub">Scrivici — ogni acquisto è una conversazione</p>
+    <a class="contact-email" href="mailto:info@imperiohandmade.com">info@imperiohandmade.com</a>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <span class="footer-name">Imperio</span>
+    <span class="footer-note">Ogni pezzo ha una storia</span>
+  </footer>
+
+  <script>
+    function filterCat(btn, cat) {
+      document.querySelectorAll('.cat-pill').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelectorAll('.gallery-item').forEach(item => {
+        item.style.display = (cat === 'tutti' || item.dataset.cat === cat) ? '' : 'none';
+      });
+    }
+  </script>
+
+</body>
+</html>
