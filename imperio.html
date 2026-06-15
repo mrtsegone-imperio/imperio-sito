@@ -18,9 +18,16 @@
       --nero: #0D0D0B;
     }
 
+    /*
+    F0NT USATI:
+    - Titoli (IMPERIO, headings): 'Cinzel' - simile a New Icon Condensed, maiuscoletto romano
+    - Sottotitoli e slogan: 'Raleway' - elegante, condensed, simile a Parchasin Neue
+    - Corpo testo: 'Cormorant Garamond' - serif raffinato
+    */
+
     body {
       background: var(--crema);
-      color: var(--crema);
+      color: var(--carbone);
       font-family: 'Cormorant Garamond', Georgia, serif;
       min-height: 100vh;
     }
@@ -30,11 +37,11 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 2rem 3rem;
-      border-bottom: 0.5px solid rgba(168,178,161,0.2);
+      padding: 1.8rem 3rem;
+      border-bottom: 0.5px solid rgba(43,43,43,0.15);
       position: sticky;
       top: 0;
-      background: var(--nero);
+      background: var(--crema);
       z-index: 100;
     }
 
@@ -45,12 +52,20 @@
       text-decoration: none;
     }
 
-    .logo-svg { width: 38px; height: 38px; }
+    .nav-logo img {
+      height: 36px;
+      width: auto;
+      display: block;
+
+      }
+
+    /* Fallback SVG se immagine non trovata */
+    .logo-svg { width: 36px; height: 36px; }
 
     .logo-name {
-      font-family: 'IM Fell English SC', serif;
-      font-size: 18px;
-      letter-spacing: 0.35em;
+      font-family: 'Cinzel', serif;
+      font-size: 16px;
+      letter-spacing: 0.32em;
       color: var(--terra);
       font-weight: 400;
     }
@@ -62,17 +77,17 @@
     }
 
     .nav-links a {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 12px;
+      font-family: 'Raleway', sans-serif;
+      font-size: 11px;
       letter-spacing: 0.22em;
-      color: var(--salvia);
+      color: var(--carbone);
       text-decoration: none;
       text-transform: uppercase;
-      opacity: 0.8;
+      opacity: 0.6;
       transition: opacity 0.3s, color 0.3s;
     }
 
-    .nav-links a:hover { opacity: 1; color: var(--crema); }
+    .nav-links a:hover { opacity: 1; color: var(--terra); }
 
     /* ── HERO ── */
     .hero {
@@ -84,10 +99,20 @@
       text-align: center;
     }
 
+    .hero-logog-img {
+      width: 220px;
+      height: auto;
+      margin-bottom: 2.5rem;
+      display: block;
+
+    }
+
+    /* Fallback SVG se immagine non trovata */
+
     .hero-rings { width: 180px; height: 180px; margin-bottom: 3rem; opacity: 0.9; }
 
     .hero-title {
-      font-family: 'IM Fell English SC', serif;
+      font-family: 'Cinzel', serif;
       font-size: 52px;
       letter-spacing: 0.28em;
       color: var(--terra);
@@ -97,20 +122,22 @@
     }
 
     .hero-slogan {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 15px;
-      letter-spacing: 0.18em;
+      font-family: 'Raleway', sans-serif;
+      font-size: 13px;
+      letter-spacing: 0.22em;
       color: var(--salvia);
       font-style: italic;
       margin-bottom: 3rem;
+      text-transform: lowercase;
     }
 
     .hero-sub {
-      font-size: 13px;
-      letter-spacing: 0.14em;
-      color: rgba(168,178,161,0.55);
+      font-family: 'Raleway', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      color: rgba(168,178,161,0.65);
       text-transform: uppercase;
-      line-height: 2;
+      line-height: 2.2;
     }
 
     .hero-cta {
@@ -119,9 +146,9 @@
       border: 0.5px solid rgba(181,110,77,0.5);
       color: var(--terra);
       padding: 0.8rem 2.5rem;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 12px;
-      letter-spacing: 0.25em;
+      font-family: 'Raleway', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.28em;
       text-transform: uppercase;
       cursor: pointer;
       background: transparent;
@@ -136,22 +163,22 @@
       align-items: center;
       gap: 1.5rem;
       padding: 0 3rem;
-      margin: 1rem 0 3rem;
+      margin: 2.5rem 0;
     }
 
-    .divider-line { flex: 1; height: 0.5px; background: rgba(168,178,161,0.18); }
+    .divider-line { flex: 1; height: 0.5px; background: rgba(43,43,43,0.15); }
 
     .divider-mark {
-      font-size: 11px;
+      font-family: 'Raleway', sans-serif;
+      font-size: 10px;
       letter-spacing: 0.3em;
-      color: rgba(168,178,161,0.35);
+      color: rgba(43,43,43,0.35);
       text-transform: uppercase;
-      font-family: 'Cormorant Garamond', serif;
     }
 
     /* ── CATEGORIES ── */
     .categories {
-      padding: 2rem 3rem 1.5rem;
+      padding: 0.5rem 3rem 1.5rem;
       display: flex;
       gap: 1rem;
       justify-content: center;
@@ -159,13 +186,13 @@
     }
 
     .cat-pill {
-      border: 0.5px solid rgba(168,178,161,0.25);
-      color: rgba(168,178,161,0.6);
+      border: 0.5px solid rgba(43,43,43,0.2);
+      color: rgba(43,43,43,0.45);
       padding: 0.4rem 1.4rem;
-      font-size: 11px;
+      font-family: 'Raleway', sans-serif;
+      font-size: 10px;
       letter-spacing: 0.22em;
       text-transform: uppercase;
-      font-family: 'Cormorant Garamond', serif;
       cursor: pointer;
       background: transparent;
       transition: all 0.3s;
@@ -189,14 +216,13 @@
       aspect-ratio: 3/4;
       overflow: hidden;
       cursor: pointer;
-      background: #1a1815;
+      background: #e8e3dc;
     }
 
     /*
       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
       COME AGGIUNGERE LE TUE FOTO:
-      Sostituisci il contenuto di .gallery-item-inner
-      con un tag <img>:
+      Sostituisci il blocco SVG con:
         <img src="foto-nome.jpg" alt="Nome pezzo"
              style="width:100%;height:100%;object-fit:cover;">
       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -216,7 +242,7 @@
     .gallery-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(to top, rgba(13,13,11,0.75) 0%, transparent 55%);
+      background: linear-gradient(to top, rgba(13,13,11,0.65) 0%, transparent 55%);
       opacity: 0;
       transition: opacity 0.4s;
     }
@@ -237,49 +263,51 @@
     .gallery-item:hover .gallery-info { opacity: 1; transform: translateY(0); }
 
     .gallery-type {
+      font-family: 'Raleway', sans-serif;
       font-size: 10px;
       letter-spacing: 0.28em;
       color: var(--salvia);
       text-transform: uppercase;
-      font-family: 'Cormorant Garamond', serif;
       margin-bottom: 4px;
     }
 
     .gallery-title-item {
+      font-family: 'Cormorant Garamond', serif;
       font-size: 16px;
       color: var(--crema);
-      font-family: 'Cormorant Garamond', serif;
       font-weight: 300;
       letter-spacing: 0.05em;
     }
 
     .gallery-price {
-      font-size: 12px;
+      font-family: 'Raleway', sans-serif;
+      font-size: 11px;
       color: var(--terra);
-      font-family: 'Cormorant Garamond', serif;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.12em;
       margin-top: 4px;
     }
 
-    .bg-vaso     { background: #2a1f18; }
-    .bg-scultura { background: #1e2420; }
-    .bg-pittura  { background: #1a1c28; }
-    .bg-gioiello { background: #221a1a; }
-    .bg-tessuto  { background: #1c2018; }
-    .bg-disegno  { background: #241e16; }
+    .bg-vaso     { background: #e0d8cf; }
+    .bg-scultura { background: #d8e0da; }
+    .bg-pittura  { background: #d8d9e2; }
+    .bg-gioiello { background: #e2d8d8; }
+    .bg-tessuto  { background: #dae0d8; }
+    .bg-disegno  { background: #e2ddd5; }
 
     /* ── ABOUT ── */
     .about-strip {
-      border-top: 0.5px solid rgba(168,178,161,0.15);
-      border-bottom: 0.5px solid rgba(168,178,161,0.15);
+      border-top: 0.5px solid rgba(43,43,43,0.1);
+      border-bottom: 0.5px solid rgba(43,43,43,0.1);
       padding: 3.5rem 3rem;
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 4rem;
       align-items: center;
+      background: var(--crema);
     }
 
     .about-label {
+      font-family: 'Raleway', sans-serif;
       font-size: 10px;
       letter-spacing: 0.35em;
       color: var(--terra);
@@ -288,9 +316,10 @@
     }
 
     .about-text {
-      font-size: 15px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 16px;
       line-height: 1.9;
-      color: rgba(243,238,231,0.65);
+      color: rgba(43,43,43,0.7);
       font-weight: 300;
       letter-spacing: 0.03em;
     }
@@ -303,24 +332,26 @@
 
     .about-stat {
       text-align: center;
-      border: 0.5px solid rgba(168,178,161,0.15);
+      border: 0.5px solid rgba(43,43,43,0.12);
       padding: 1.5rem 1rem;
     }
 
     .about-stat-num {
-      font-size: 32px;
+      font-family; 'Cinzel', serif;
+      font-size: 30px;
       color: var(--terra);
-      font-weight: 300;
+      font-weight: 400;
       letter-spacing: 0.05em;
       display: block;
     }
 
     .about-stat-label {
+      font-family: 'Raleway', sans-serif;
       font-size: 10px;
       letter-spacing: 0.22em;
       color: var(--salvia);
       text-transform: uppercase;
-      opacity: 0.7;
+      opacity: 0.8;
       margin-top: 6px;
       display: block;
     }
@@ -329,56 +360,62 @@
     .contact {
       padding: 4rem 3rem;
       text-align: center;
+      background: var(--crema);
     }
 
     .contact-title {
-      font-family: 'IM Fell English SC', serif;
+      font-family: 'Cinzel', serif;
       font-size: 22px;
       letter-spacing: 0.25em;
-      color: var(--crema);
+      color: var(--carbone);
       font-weight: 400;
       margin-bottom: 0.8rem;
     }
 
     .contact-sub {
-      font-size: 13px;
-      letter-spacing: 0.12em;
-      color: rgba(168,178,161,0.55);
+      font-family: 'Raleway', sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.15em;
+      color: rgba(43,43,43,0.45);
       font-style: italic;
       margin-bottom: 2rem;
     }
 
     .contact-email {
-      font-size: 14px;
+      font-family: 'Raleway', sans-serif;
+      font-size: 13px;
       letter-spacing: 0.18em;
       color: var(--terra);
       text-decoration: none;
       border-bottom: 0.5px solid rgba(181,110,77,0.35);
       padding-bottom: 2px;
+      transition: border-color 0.3s, color 0.3s;
     }
 
-    .contact-email:hover { border-color: var(--terra); color: var(--crema); }
+    .contact-email:hover { border-color: var(--terra); color: var(--carbone); }
 
     /* ── FOOTER ── */
     footer {
-      border-top: 0.5px solid rgba(168,178,161,0.12);
+      border-top: 0.5px solid rgba(43,43,43,0.1);
       padding: 2rem 3rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      background: var(--crema);
     }
 
     .footer-name {
-      font-family: 'IM Fell English SC', serif;
+      font-family: 'Cinzel', serif;
       font-size: 13px;
       letter-spacing: 0.3em;
-      color: rgba(181,110,77,0.5);
+      color: rgba(181,110,77,0.6);
     }
 
     .footer-note {
+      font-family: 'Raleway', sans-serif;
       font-size: 11px;
-      letter-spacing: 0.12em;
-      color: rgba(168,178,161,0.3);
+      letter-spacing: 0.14em;
+      color: rgba(43,43,43,0.3);
       font-style: italic;
     }
 
@@ -389,13 +426,13 @@
       .hero-title { font-size: 36px; }
       .gallery { grid-template-columns: repeat(2, 1fr); padding: 1rem 1rem 3rem; }
       .about-strip { grid-template-columns: 1fr; gap: 2rem; padding: 2.5rem 1.5rem; }
-      .categories { padding: 1.5rem 1rem 1rem; }
+      .categories { padding: 0.5rem 1rem 1rem; }
     }
 
     @media (max-width: 480px) {
       nav { padding: 1rem 1.2rem; }
       .nav-links { gap: 1rem; }
-      .nav-links a { font-size: 10px; }
+      .nav-links a { font-size: 9px; }
       .hero { padding: 4rem 1.5rem 3rem; }
       .hero-title { font-size: 28px; }
       .gallery { grid-template-columns: 1fr; }
