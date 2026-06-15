@@ -5,8 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Imperio — Ogni pezzo ha una storia</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=IM+Fell+English+SC&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500&family=Raleway:wght@300;400;500&family=Cormorant+Garamond:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -25,6 +24,10 @@
     - Corpo testo: 'Cormorant Garamond' - serif raffinato
     */
 
+    html {
+  scroll-behavior: smooth;
+}
+    
     body {
       background: var(--crema);
       color: var(--carbone);
@@ -99,7 +102,7 @@
       text-align: center;
     }
 
-    .hero-logog-img {
+    .hero-logo-img {
       width: 220px;
       height: auto;
       margin-bottom: 2.5rem;
@@ -155,7 +158,7 @@
       transition: background 0.3s, color 0.3s;
     }
 
-    .hero-cta:hover { background: rgba(181,110,77,0.1); color: var(--crema); }
+    .hero-cta:hover { background: var(--terra); color: var(--crema); }
 
     /* ── DIVIDER ── */
     .divider {
@@ -261,6 +264,12 @@
     }
 
     .gallery-item:hover .gallery-info { opacity: 1; transform: translateY(0); }
+    .gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
 
     .gallery-type {
       font-family: 'Raleway', sans-serif;
@@ -337,7 +346,7 @@
     }
 
     .about-stat-num {
-      font-family; 'Cinzel', serif;
+      font-family: 'Cinzel', serif;
       font-size: 30px;
       color: var(--terra);
       font-weight: 400;
@@ -467,7 +476,7 @@
     <h1 class="hero-title">Imperio</h1>
     <p class="hero-slogan">Ogni pezzo ha una storia</p>
     <p class="hero-sub">Vasi · Sculture · Pitture · Disegni · Gioielli · Tessuti</p>
-    <button class="hero-cta" onclick="document.getElementById('collezione').scrollIntoView({behavior:'smooth'})">
+    <button class="hero-cta"         aria-label="Vai alla collezione" onclick="document.getElementById('collezione').scrollIntoView({behavior:'smooth'})">
       Scopri la collezione
     </button>
   </section>
@@ -668,7 +677,7 @@
       document.querySelectorAll('.cat-pill').forEach(p => p.classList.remove('active'));
       btn.classList.add('active');
       document.querySelectorAll('.gallery-item').forEach(item => {
-        item.style.display = (cat === 'tutti' || item.dataset.cat === cat) ? 'block' : 'none';
+        item.style.display = (cat === 'tutti' || item.dataset.cat === cat) ? '' : 'none';
       });
     }
   </script>
